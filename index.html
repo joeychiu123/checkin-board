@@ -277,7 +277,7 @@ setInterval(async()=>{
   fetchCount++;
   dbg.textContent='嘗試連線中 #'+fetchCount+'...';
   try{
-    const res=await fetch(SHEET_URL+'?t='+Date.now());
+    const res=await fetch(SHEET_URL+'?t='+Date.now(), {redirect:'follow'});
     if(!res.ok){dbg.textContent='❌ HTTP錯誤 '+res.status;return;}
     const data=await res.json();
     const statuses=data.map(r=>r.status);
